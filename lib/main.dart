@@ -3,14 +3,36 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
 
-    Container(
-      color: Colors.amber,
-    ),
+    MaterialApp(
+      home: 
+        Scaffold(
+          //Posição do botao flutuante
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: IconButton(onPressed: (){}, icon: Icon(Icons.adb_rounded)),
+          
+          // como se fosse uma barra de status
+          persistentFooterButtons: [
+            ElevatedButton(onPressed: (){print("HHAHA");}, child: Text('OK'),),
+            Text("Ola mundo"),
+            ElevatedButton(onPressed: (){}, child: Text('Leonardo'),),
+          ],
+          // poscao da barra de status
+          persistentFooterAlignment: AlignmentDirectional.center,
 
-/*MaterialApp(
-  color: Color.fromARGB(255, 255, 255, 0),
-  title: "WORKSHOP",
-)
-*/
+          body: Home(),
+        )
+    ),
   );
+}
+
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      "Esse ee o centro da tela",
+      );
+  }
 }
